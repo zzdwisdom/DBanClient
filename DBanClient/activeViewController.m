@@ -45,29 +45,47 @@
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://api.douban.com/v2/onlines?apikey=02e4906e7a194c5008adb14b6e4be4f0"]];
     
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:NULL error:NULL];
-    NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    NSString *xml = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    NSDictionary *xmlDic = [xml JSONValue];
-    NSLog(@"%@",xmlDic);
+    [NSURLConnection connectionWithRequest:request delegate:self];
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    self.responseData = [NSMutableData data];
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    [self.responseData appendData:data];
+}
+
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    
+    NSString *responseString = [[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding];
+    NSDictionary *xmlDic = [responseString JSONValue];
+    NSLog(@"aaa%@",xmlDic);
     NSMutableArray *onlines = [NSMutableArray array];
     NSArray *onlineList = [xmlDic objectForKey:@"onlines"];
+    
     for (NSDictionary *dic in onlineList)
     {
         OnLine *online = [[[OnLine alloc] init] autorelease];
         online.onlineTitle = [dic objectForKey:@"title"];
         online.onlineId = [dic objectForKey:@"album_id"];
         online.onlineDesc = [dic objectForKey:@"desc"];
-        //online.onlineString= [dic objectForKey:@"icon"];
-        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:online.onlineString]];
+        online.onlineURLString= [dic objectForKey:@"cover"];
+        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:online.onlineURLString]];
         online.onlineImage = [UIImage imageWithData:imageData];
         
         self.onlines = onlines;
         [self.onlines addObject:online];
+        NSLog(@"%@",online);
     }
+    
     [responseString release];
-    [xml release];
+    [self.tableView reloadData];
 }
+
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -88,7 +106,9 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier] autorelease];
     }
     OnLine *online = [self.onlines objectAtIndex:indexPath.row];
-    cell.textLabel.text = online.onlineDesc;
+    cell.textLabel.text = online.onlineTitle;
+    cell.detailTextLabel.text = online.onlineDesc;
+    cell.detailTextLabel.numberOfLines = 3;
     cell.imageView.image = online.onlineImage;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     

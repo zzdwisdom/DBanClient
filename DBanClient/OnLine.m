@@ -13,14 +13,16 @@
 {
     [_onlineId release];
     [_onlineImage release];
-    [_onlineString release];
+    [_onlineURLString release];
     [_onlineTitle release];
     [_onlineDesc release];
     [_beginTime release];
     [_endTime release];
     [super dealloc];
-    
-    
 }
 
+-(NSString *)description
+{
+    return [NSString stringWithFormat:@"ID:%@  Title:%@",_onlineId,_onlineTitle];
+}
 @end
