@@ -7,7 +7,10 @@
 //
 
 #import "zzdAppDelegate.h"
-
+#import "moviesViewController.h"
+#import "musicViewController.h"
+#import "activeViewController.h"
+#import "aboutViewController.h"
 @implementation zzdAppDelegate
 
 - (void)dealloc
@@ -20,7 +23,71 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.backgroundColor = [UIColor grayColor];
+    
+    // -------- navigation #1 ----------
+    // 创建第一个界面
+   moviesViewController *movie = [[moviesViewController alloc] init];
+    
+    // 创建UINavigationController实例
+    UINavigationController *navigation1 = [[UINavigationController alloc] initWithRootViewController:movie];
+//    navigation1.navigationBar.backgroundColor = [UIColor blackColor];
+    navigation1.navigationBar.tintColor = [UIColor blackColor];
+    navigation1.title = @"豆瓣电影";
+    
+    [movie release];
+    
+    // 设置navigation #1的tab bar item
+    navigation1.tabBarItem.image = [UIImage imageNamed:@"about.png"];
+    navigation1.tabBarItem.title = @"Movies";
+   
+    
+    // -------- navigation #2 ----------
+    // 创建第一个界面
+    musicViewController *music = [[musicViewController alloc] initWithStyle:UITableViewStylePlain];
+    
+    // 创建UINavigationController实例
+    UINavigationController *navigation2 = [[UINavigationController alloc] initWithRootViewController:music];
+    [music release];
+    
+    // 设置navigation #2的tab bar item
+    navigation2.tabBarItem.image = [UIImage imageNamed:@"about.png"];
+    navigation2.tabBarItem.title = @"Music";
+    
+    //--------navagation #3-----------
+    //创建第一个界面
+    activeViewController *active = [[activeViewController alloc]initWithStyle:UITableViewStylePlain];
+    //创建navagationcontriller实例
+    UINavigationController *navigation3 = [[UINavigationController alloc] initWithRootViewController:active];
+    [active release];
+    //设置navigation3的tabbaritem
+    navigation3.tabBarItem.image = [UIImage imageNamed:@"about.png"];
+    navigation3.tabBarItem.title = @"Active";
+    
+    // -------- navigation #4 ----------
+    // 创建第一个界面
+    aboutViewController *about = [[aboutViewController alloc] init];
+    
+    // 创建UINavigationController实例
+    UINavigationController *navigation4 = [[UINavigationController alloc] initWithRootViewController:about];
+    [about release];
+    
+    // 设置navigation #3的tab bar item
+    navigation4.tabBarItem.title = @"About";
+    navigation4.tabBarItem.image = [UIImage imageNamed:@"about.png"];
+    
+    // 创建UITabBarController实例
+    UITabBarController *tab = [[UITabBarController alloc] init];
+    tab.viewControllers = [NSArray arrayWithObjects:navigation1, navigation2,navigation3, navigation4, nil];
+    
+    self.window.rootViewController = tab;
+    [tab release];
+    
+    [navigation1 release];
+    [navigation2 release];
+    [navigation3 release];
+    [navigation4 release];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
