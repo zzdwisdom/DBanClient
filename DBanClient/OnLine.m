@@ -15,6 +15,9 @@
     [_onlineImage release];
     [_onlineString release];
     [_onlineTitle release];
+    [_onlineDesc release];
+    [_beginTime release];
+    [_endTime release];
     [super dealloc];
     
     
