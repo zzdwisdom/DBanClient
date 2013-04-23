@@ -16,9 +16,6 @@
 @property (nonatomic, retain) OnLine *online;
 @property (nonatomic, retain) NSMutableArray *onlines;
 @property (nonatomic, retain) NSMutableData *responseData;
-@property (nonatomic, retain) UILabel *label1;
-@property (nonatomic, retain) UILabel *label2;
-@property (nonatomic, retain) UILabel *label3;
 
 @end
 
@@ -29,9 +26,6 @@
     [_online release];
     [_onlines release];
     [_responseData release];
-    [_label1 release];
-    [_label2 release];
-    [_label3 release];
     [super dealloc];
 }
 
@@ -115,15 +109,6 @@
         OnLine *online = [self.onlines objectAtIndex:indexPath.row];
         cell.textLabel.text = online.onlineTitle;
         cell.imageView.image = online.onlineImage;
-       // cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        
-//        UILabel *label3 = [[UILabel alloc] initWithFrame:CGRectMake(100.0, 20.0, 230.0, 70.0)];
-//        label3.textAlignment = NSTextAlignmentCenter;
-//        label3.backgroundColor = [UIColor clearColor];
-//        label3.font = [UIFont systemFontOfSize:15.0];
-//        label3.text = self.Name;
-//        label3.numberOfLines = 0;
-//        [cell.contentView addSubview:label3];
     }
     else
     {
@@ -132,8 +117,6 @@
         if (!cell) {
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
         }
-        //cell.textLabel.text = self.label2.text;
-        //cell.selectionStyle = UITableViewCellSelectionStyleNone;
         OnLine *online = [self.onlines objectAtIndex:indexPath.row];
         cell.textLabel.text = online.onlineDesc;
     }
@@ -145,20 +128,9 @@
     if (indexPath.section == 0) {
         return 100.0;
     }
-    else if (indexPath.section == 1)
-    {
-        return 60.0;
-    }
     else
     {
-        UILabel *label4 = [[UILabel alloc] initWithFrame:CGRectMake(10.0, 10.0, 280.0, 400.0)];
-        label4.textAlignment = NSTextAlignmentCenter;
-        label4.backgroundColor = [UIColor clearColor];
-        label4.font = [UIFont systemFontOfSize:15.0];
-        label4.text = self.label2.text;
-        label4.numberOfLines = 0;
-        [label4 sizeToFit];
-        return label4.frame.size.height + 20.0;
+        return 300.0;
     }
 }
 
