@@ -31,7 +31,6 @@
 		0F8C996F1725B43D0037AEAE /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C99691725B43D0037AEAE /* SBJsonWriter.m */; };
 		0F8C99AB1725E1640037AEAE /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C99AA1725E1640037AEAE /* Book.m */; };
 		0F8C99AF1725E2FF0037AEAE /* OnLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8C99AE1725E2FF0037AEAE /* OnLine.m */; };
-		6F832F0517263A4C0078B227 /* zzdaaaaaaaaaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F832F0417263A4C0078B227 /* zzdaaaaaaaaaViewController.m */; };
 		6F853FDE1726160D0010A51F /* activeViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F853FDD1726160D0010A51F /* activeViewController2.m */; };
 /* End PBXBuildFile section */
 
@@ -79,8 +78,6 @@
 		0F8C99AC1725E2FF0037AEAE /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Author.h; sourceTree = "<group>"; };
 		0F8C99AD1725E2FF0037AEAE /* OnLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnLine.h; sourceTree = "<group>"; };
 		0F8C99AE1725E2FF0037AEAE /* OnLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnLine.m; sourceTree = "<group>"; };
-		6F832F0317263A4C0078B227 /* zzdaaaaaaaaaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zzdaaaaaaaaaViewController.h; sourceTree = "<group>"; };
-		6F832F0417263A4C0078B227 /* zzdaaaaaaaaaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zzdaaaaaaaaaViewController.m; sourceTree = "<group>"; };
 		6F853FDC1726160D0010A51F /* activeViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = activeViewController2.h; sourceTree = "<group>"; };
 		6F853FDD1726160D0010A51F /* activeViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = activeViewController2.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,8 +100,6 @@
 		0F6852A7171CE1B500261FA6 = {
 			isa = PBXGroup;
 			children = (
-				6F832F0317263A4C0078B227 /* zzdaaaaaaaaaViewController.h */,
-				6F832F0417263A4C0078B227 /* zzdaaaaaaaaaViewController.m */,
 				0F8C995C1725B41A0037AEAE /* josn */,
 				0F6852BC171CE1B500261FA6 /* DBanClient */,
 				0F6852B5171CE1B500261FA6 /* Frameworks */,
@@ -316,7 +311,6 @@
 				0F8C99AB1725E1640037AEAE /* Book.m in Sources */,
 				0F8C99AF1725E2FF0037AEAE /* OnLine.m in Sources */,
 				6F853FDE1726160D0010A51F /* activeViewController2.m in Sources */,
-				6F832F0517263A4C0078B227 /* zzdaaaaaaaaaViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
