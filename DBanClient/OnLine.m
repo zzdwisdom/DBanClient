@@ -18,6 +18,7 @@
     [_onlineDesc release];
     [_beginTime release];
     [_endTime release];
+    [_onlineOwner release];
     [super dealloc];
 }
 
