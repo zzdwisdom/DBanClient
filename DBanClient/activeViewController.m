@@ -9,12 +9,13 @@
 #import "activeViewController.h"
 #import "OnLine.h"
 #import "JSON.h"
+#import "activeViewController2.h"
 
 @interface activeViewController ()
 
 @property (nonatomic, retain) OnLine *online;
 @property (nonatomic, retain) NSMutableArray *onlines;
-@property (nonatomic, retain)NSMutableData *responseData;
+@property (nonatomic, retain) NSMutableData *responseData;
 
 @end
 
@@ -120,6 +121,12 @@
     return 80.0;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    activeViewController2 *two = [[activeViewController2 alloc] init];
+    
+    [self.navigationController pushViewController:two animated:YES];
+}
 
 - (void)didReceiveMemoryWarning
 {

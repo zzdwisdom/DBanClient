@@ -52,7 +52,7 @@
     
     segmentedControlArray = [NSArray arrayWithObjects:@"上映",@"影院",@"我看", nil];
     UISegmentedControl * segmentedControl = [[UISegmentedControl alloc]initWithItems:segmentedControlArray];
-    segmentedControl.momentary  = YES;
+    segmentedControl.momentary  = NO;
     segmentedControl.segmentedControlStyle = UISegmentedControlNoSegment;
     segmentedControl.frame = CGRectMake(0, 0, 320, 50);
     segmentedControl.tintColor = [UIColor blackColor];
